@@ -12,7 +12,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
+    <?php sprintf( '<a href="%s">', esc_url( get_permalink() ) ) ?>
 	<?php get_template_part( 'template-parts/header/excerpt-header', get_post_format() ); ?>
 
 	<div class="entry-content">
@@ -21,5 +21,6 @@
 
 	<footer class="entry-footer default-max-width">
 		<?php twenty_twenty_one_entry_meta_footer(); ?>
-	</footer><!-- .entry-footer -->
+    </footer><!-- .entry-footer -->
+    <?php sprintf('</a>') ?>
 </article><!-- #post-${ID} -->

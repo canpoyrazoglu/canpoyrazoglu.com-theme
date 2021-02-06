@@ -1,9 +1,12 @@
 :root{
-    --header-title-backdrop: blur(8px) brightness(1.2);
-    --small-border-radius: max(8px, 1vw);
+    --header-title-backdrop: blur(8px) brightness(3);
+    --header-text-shadow: 0px 0px 6px rgba(255, 255, 238, 0.7);
+    --site-branding-backdrop: blur(10px) brightness(0.4) saturate(2);
+    --small-border-radius: max(10px, 1vw);
     --text-color: #f8f8f8;
     --inverted-text-color: #333;
     --header-title-box-shadow: 0px -8px 32px 0px rgba(0,0,0,0.2); 
+    --title-font: Rockwell, "American Typewriter";
 }
 
 body{
@@ -15,36 +18,32 @@ body{
     margin-right: 0;
     width: 100%;
     max-width: 100%;
-    height: calc(100vw * 0.5);
+    /* height: calc(100vw * 0.5); */
     margin: 0;
 }
 
-.entry-header .post-thumbnail img, .singular .post-thumbnail img, .post-thumbnail img{
+.cp-collection-page .entry-header .post-thumbnail img, .singular .post-thumbnail img, .post-thumbnail img{
     height: 100% !important;
     object-fit: cover;
 }
 
-.entry-header{
+.cp-collection-page .entry-header{
     margin-left: 0;
     margin-right: 0;
     min-width: 100%;
 }
 
-.entry-title{
-    margin-left: 10vw;
-}
 
 h1,h2,h3{
     font-family: Georgia;
 }
 
 .cp-collection-page{
-    background-color: red;
     display: grid;
     margin-left: 4vw;
     margin-right: 4vw;
     grid-template-columns: 100%;
-    grid-template-rows: 240px;
+    grid-auto-rows: 240px;
     gap: 3vw 3vh;
     justify-content: center;
 }
@@ -53,8 +52,9 @@ h1,h2,h3{
 
 	.cp-collection-page{
         grid-template-columns: 100%;
-        grid-template-rows: 220px;
-
+        grid-auto-rows: 220px;
+        max-width: 70vw;
+        margin: auto;
     }
 }
 
@@ -62,7 +62,8 @@ h1,h2,h3{
 
 	.cp-collection-page{
         grid-template-columns: 100%;
-        grid-template-rows: 280px;
+        grid-auto-rows: 280px;
+        
 
     }
 }
@@ -70,8 +71,11 @@ h1,h2,h3{
 @media only screen and (min-width: 652px) {
 
 	.cp-collection-page{
+        max-width: unset;
+        margin-left: 4vw;
+        margin-right: 4vw;
         grid-template-columns: 48% 48%;
-        grid-template-rows: 220px;
+        grid-auto-rows: 220px;
 
     }
 }
@@ -80,8 +84,8 @@ h1,h2,h3{
 @media only screen and (min-width: 822px) {
 
 	.cp-collection-page{
-        grid-template-columns: 31% 31% 31%;
-        grid-template-rows: 220px;
+        grid-template-columns: 48% 48%;
+        grid-auto-rows: 280px;
 
     }
 }
@@ -89,8 +93,8 @@ h1,h2,h3{
 @media only screen and (min-width: 1024px) {
 
 	.cp-collection-page{
-        grid-template-columns: 23% 23% 23% 23%;
-        grid-template-rows: 200px;
+        grid-template-columns: 31% 31% 31%;
+        grid-auto-rows: 250px;
 
     }
 }
@@ -98,8 +102,8 @@ h1,h2,h3{
 @media only screen and (min-width: 1366px) {
 
 	.cp-collection-page{
-        grid-template-columns: 18% 18% 18% 18% 18%;
-        grid-template-rows: 200px;
+        grid-template-columns: 23% 23% 23% 23%;
+        grid-auto-rows: 250px;
 
     }
 }
@@ -121,6 +125,9 @@ h1,h2,h3{
     bottom: 0;
     right: 0;
     top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cp-collection-page .entry-header img {
@@ -128,34 +135,129 @@ h1,h2,h3{
 }
 
 .cp-collection-page article .entry-title{
-    font-size: min(max(2vw, 11pt), 14pt);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12pt;
+    margin-left: 10vw;
+    font-family: var(--title-font);
     position: absolute;
+    font-weight: 500;
     left: 0;
     bottom: 0;
     margin: 0;
-    height: min(8vw, 100px, 36%);
-    padding-top: 1vw;
-    letter-spacing: 0.04vw;
-    padding-left: 1.4vw;
-    padding-right: 1vw;
+    height: 70px;
+    padding-top: 12px;
+    padding-left: 16px;
+    padding-right: 12px;
     border-bottom-left-radius: var(--small-border-radius);
     border-bottom-right-radius: var(--small-border-radius);
     -webkit-backdrop-filter: var(--header-title-backdrop);
     backdrop-filter: var(--header-title-backdrop);
     right: 0;
-    padding-bottom: 1.2vw;
     max-width: unset;
+    color: var(--inverted-text-color);
+    
     -webkit-box-shadow: var(--header-title-box-shadow);
-    box-shadow: var(--header-title-box-shadow);
+
+}
+
+.cp-collection-page article .entry-title a:hover{
+    color: unset;
+}
+
+.cp-collection-page article .entry-content{
+    overflow: hidden;
+    display: block;
+    font-size: 8.5pt;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    bottom: 10px;
+    margin: 0;
+    line-height: 11pt;
+    letter-spacing: 0.3px;
+    padding-left: 16px;
+    padding-right: 12px;
+    color: var(--inverted-text-color);
+}
+
+.cp-collection-page article .entry-content p{
+    max-height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+}
+
+.cp-collection-page article .entry-content .more-link{
+    display: none;
 }
 
 .cp-collection-page article .entry-title a {
     background-color: unset;
     text-decoration: none;
-    color: var(--inverted-text-color);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-shadow: var(--header-text-shadow);
 }
 
 .cp-collection-page article footer{
     display: none;
+}
+
+#page{
+    position: relative;
+}
+
+#masthead{
+    padding-top: 0;
+    margin: 0;
+    padding-bottom: 0;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    -webkit-backdrop-filter: var(--site-branding-backdrop);
+    backdrop-filter: var(--site-branding-backdrop);
+    max-width: unset;
+}
+
+#masthead .site-branding{
+    text-align: unset;
+    display: flex;
+    cursor: default;
+    align-items: baseline;
+}
+
+#masthead .site-title{
+    font-size: min(12pt, max(1vw, 8pt));
+    font-weight: 700;
+}
+
+#masthead .site-title a{
+    font-weight: 700;
+    text-decoration: none;
+
+}
+
+#masthead .site-description{
+    font-size: min(12pt, max(1vw, 8pt));
+    font-weight: 500;
+    text-transform: uppercase;
+    padding-right: 1vw;
+}
+
+#masthead .site-title::after{
+    margin-left: 0.5vw;
+    content: '·';
+    margin-right: 0.5vw;
+}
+
+.site-content{
+    padding-top: 20px;
 }
