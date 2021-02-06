@@ -20,17 +20,50 @@ body{
     max-width: 100%;
     /* height: calc(100vw * 0.5); */
     margin: 0;
+    overflow: hidden;
 }
+
 
 .cp-collection-page .entry-header .post-thumbnail img, .singular .post-thumbnail img, .post-thumbnail img{
     height: 100% !important;
     object-fit: cover;
+    margin-top: unset;
 }
 
 .cp-collection-page .entry-header{
     margin-left: 0;
     margin-right: 0;
     min-width: 100%;
+}
+
+.singular .entry-header{
+    min-width: 100vw;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    height: 60vw;
+    background: #222;
+    overflow: hidden;
+}
+
+.singular .entry-title{
+    padding-left: 6vw;
+    position: absolute;
+    bottom: 4%;
+    left: 0;
+    font-size: 8vw;
+    right: 0;
+    padding-right: 4vw;
+    padding-right: 4vw;
+    padding-bottom: 2vw;
+    padding-top: 2vw;
+    -webkit-backdrop-filter: blur(4px) brightness(0.3);
+    backdrop-filter: blur(4px) brightness(0.3);
+
+}
+
+.singular .post-thumbnail{
+    height: 60vw;;
 }
 
 
@@ -232,10 +265,11 @@ h1,h2,h3{
     display: flex;
     cursor: default;
     align-items: baseline;
+    max-width: unset;
 }
 
 #masthead .site-title{
-    font-size: min(12pt, max(1vw, 8pt));
+    font-size: min(12pt, max(1vw, 9pt));
     font-weight: 700;
 }
 
@@ -246,7 +280,7 @@ h1,h2,h3{
 }
 
 #masthead .site-description{
-    font-size: min(12pt, max(1vw, 8pt));
+    font-size: min(12pt, max(1vw, 9pt));
     font-weight: 500;
     text-transform: uppercase;
     padding-right: 1vw;
@@ -260,4 +294,8 @@ h1,h2,h3{
 
 .site-content{
     padding-top: 20px;
+}
+
+.singular .site-main{
+    padding-top: 0;
 }
